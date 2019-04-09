@@ -5,4 +5,6 @@
 # @ide: PyCharm
 # @time: 2019-04-09 15:19
 
+master = 1
+
 develop = 1
