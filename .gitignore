@@ -1,0 +1,16 @@
+.idea/
+*.pyc
+*.sqlite3
+.coverage
+covhtml/
+juno_env
+.logs/
+venv/
+.pytest_cache/
+static/
+.DS_Store
+*.DS_Store
+celerybeat*
+staging.py
+localscript/
+
