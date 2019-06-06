@@ -5,6 +5,7 @@
 # ide: PyCharm
 # time: 2019-05-23 16:03
 import json
+import re
 
 import pandas as pd
 
@@ -41,12 +42,20 @@ def bb(s_dict):
 def cc(cid):
     return channel_dict[str(cid)]
 
-yinyue = pd.read_excel(r'/Users/mac/Downloads/test1.xlsx')
+def gg(s):
+    if isinstance(s, unicode):
+        return re.sub("(\.\d{6})", "", s)
+    else:
+        return s
+
+yinyue = pd.read_excel(r'/Users/mac/Downloads/sale_data.xlsx')
 yinyue[[u"目标", u"时长", u"详情", u"地域", u"授权项目", u"项目描述", u"授权投放渠道"]] = yinyue[u"目的渠道地域时长"].apply(aa)
 yinyue[[u"被授权者", u"公司地址", u"公司名称"]] = yinyue[u"被授权者信息"].apply(bb)
-yinyue[u"渠道id"].apply(cc)
+yinyue[u"渠道id"] = yinyue[u"渠道id"].apply(cc)
+yinyue[u"授权时间"] = yinyue[u"授权时间"].apply(gg)
+yinyue[u"注册时间"] = yinyue[u"注册时间"].apply(gg)
+yinyue[u"最近登录时间"] = yinyue[u"最近登录时间"].apply(gg)
 
-# yinyue.drop(['目的渠道地域时长', '被授权者信息'], axis=1)
 yinyue.drop(columns=u"目的渠道地域时长", inplace=True)
 yinyue.drop(columns=u"被授权者信息", inplace=True)
-yinyue.to_excel(r'/Users/mac/Downloads/ss4.xlsx', index=False)
+yinyue.to_excel(r'/Users/mac/Downloads/售卖数据1.xlsx', index=False)
