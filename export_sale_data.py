@@ -48,7 +48,7 @@ def gg(s):
     else:
         return s
 
-yinyue = pd.read_excel(r'/Users/mac/Downloads/sale_data.xlsx')
+yinyue = pd.read_excel(r'/Users/mac/Downloads/aaa.xlsx')
 yinyue[[u"目标", u"时长", u"详情", u"地域", u"授权项目", u"项目描述", u"授权投放渠道"]] = yinyue[u"目的渠道地域时长"].apply(aa)
 yinyue[[u"被授权者", u"公司地址", u"公司名称"]] = yinyue[u"被授权者信息"].apply(bb)
 yinyue[u"渠道id"] = yinyue[u"渠道id"].apply(cc)
@@ -58,4 +58,4 @@ yinyue[u"最近登录时间"] = yinyue[u"最近登录时间"].apply(gg)
 
 yinyue.drop(columns=u"目的渠道地域时长", inplace=True)
 yinyue.drop(columns=u"被授权者信息", inplace=True)
-yinyue.to_excel(r'/Users/mac/Downloads/售卖数据1.xlsx', index=False)
+yinyue.to_excel(r'/Users/mac/Downloads/2019-06-12数据.xlsx', index=False)
