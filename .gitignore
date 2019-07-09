@@ -1,5 +1,7 @@
 .idea/
 *.pyc
+*.xml
+*.iml
 *.sqlite3
 .coverage
 covhtml/
