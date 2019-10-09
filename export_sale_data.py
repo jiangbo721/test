@@ -12,8 +12,20 @@ import pandas as pd
 channel_dict = {
     '1': u'V.Fine',
     '3': u'新片场',
+    '4': u'微博',
+    '5': u'创意空间',
+    '6': u'亿幕',
     '39': u'头条',
     '40': u'千库',
+    '41': u'摄图',
+    '43': u'小视界',
+    '44': u'千图',
+    '45': u'小米',
+    '46': u'小米back',
+    '47': u'TCC',
+    '48': u'京腾',
+    '50': u'高品',
+    '51': u'邑石'
 }
 
 def aa(s_dict):
@@ -48,7 +60,7 @@ def gg(s):
     else:
         return s
 
-yinyue = pd.read_excel(r'/Users/mac/Downloads/aaa.xlsx')
+yinyue = pd.read_excel(r'/Users/mac/Downloads/导出数据/89月全部销售数据.xlsx')
 yinyue[[u"目标", u"时长", u"详情", u"地域", u"授权项目", u"项目描述", u"授权投放渠道"]] = yinyue[u"目的渠道地域时长"].apply(aa)
 yinyue[[u"被授权者", u"公司地址", u"公司名称"]] = yinyue[u"被授权者信息"].apply(bb)
 yinyue[u"渠道id"] = yinyue[u"渠道id"].apply(cc)
@@ -58,4 +70,4 @@ yinyue[u"最近登录时间"] = yinyue[u"最近登录时间"].apply(gg)
 
 yinyue.drop(columns=u"目的渠道地域时长", inplace=True)
 yinyue.drop(columns=u"被授权者信息", inplace=True)
-yinyue.to_excel(r'/Users/mac/Downloads/2019-06-12数据.xlsx', index=False)
+yinyue.to_excel(r'/Users/mac/Downloads/89月全部销售数据.xlsx', index=False)
